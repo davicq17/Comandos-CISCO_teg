@@ -40,3 +40,36 @@ R(config)#router ospf (process-id)
   R(config)#router ospf 10
   R(config-router)# passive-interface lo0
   ```
+- Descripcion de interfaz OSPF
+  ```
+  R# show ip ospf interface g0/0/0
+  ```
+  - Deshabilitar elección DR/BDR y cambiar a punto a punto
+    ```
+    R(config-if)# ip ospf network point-to-point
+    ```
+## OSPF múlti acceso
+- Verificar adyacencias
+  ```
+  R# show ip ospf neighbor
+  ```
+- Configurar prioridad OSPF prioridad de 1 a 255.
+  ```
+  R(config)# interface g0/0/0
+  R(config-if)# ip ospf priority 255
+  ```
+- Ajustar el ancho de banda de referencia
+  ```
+  R(config-router)# auto-cost refence-bandwidth (Mbps)
+  ```
+- Cambiar el costo
+  ```
+  R(config-if)# ip ospf cost 30
+  ```
+- Modificar los intervalos de OSPFv2
+  ```
+  R(config-if)# ip ospf hello-interval seconds
+  ```
+  ```
+  R(config-if)# ip ospf dead-interval seconds
+  ```
