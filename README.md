@@ -73,3 +73,20 @@ R(config)#router ospf (process-id)
   ```
   R(config-if)# ip ospf dead-interval seconds
   ```
+- Propagar una ruta predeterminada
+  ```
+  R2(config)# interface lo1
+  R2(config-if)# ip address 64.100.0.1 255.255.255.252
+  R2(config-if)# exit
+  R2(config)# ip route 0.0.0.0 0.0.0.0 loopback 1
+  %Default route without gateway, if not a point-to-point interface, may impact performance
+  R2(config)# router ospf 10
+  R2(config-router)# default-information originate
+  R2(config-router)# end
+  R2#
+  ```
+     - Nota: Al configurar rutas estáticas, se recomienda utilizar la dirección IP de salto siguiente. Sin embargo, al simular una conexión a Internet, no hay dirección IP de salto siguiente. Por lo tanto, usamos el argumento exit-intf
+  - Comprobación de la ruta predeterminada
+    ```
+    R# show ip route
+    ```
