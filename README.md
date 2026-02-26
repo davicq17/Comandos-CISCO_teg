@@ -17,6 +17,27 @@ R(config)#router ospf (process-id)
   ```
   R# clear ip ospf process
   ```
+- verificación de vecinos OSPF
+  ```
+  R# show ip ospf neighbor
+  ```
+  - verifica que el router forme adyacensias con sus routers vecinos
+  ```
+  R# show ip protocols
+  ```
+  - verifica la información vital de configuración OSPF (process ID, IDR, interfaces configuradas, vecinos y distancias administrativas
+  ```
+  R# show ip ospf
+  ```
+  - muestra información de área OSPFv2 y la ultima vez que se ejecuto el algoritmo
+  ```
+  R# show ip ospf interface {{inteface}}
+  ```
+  - Proporciona una lista detallada de la configuración OSPF de esa interfaz
+  ```
+  R# show ip ospf interface brief
+  ```
+  - se obtiene un resumen de las interfaces habilitadas para OSPFv2 viendo información importante.
 ## OSPF punto a punto 
 - Especificar interfaces que pertecen a una red punto a punto
   ```
